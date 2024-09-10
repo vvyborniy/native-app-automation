@@ -9,16 +9,16 @@ public class FirstTest extends BaseTest {
 
     @Test(description = "Test Case #2: Verify checkboxes and switches on 'Preference From Code' page")
     public void testCase2() {
-        mainPage.assertMainPageLoaded();
-        mainPage.clickOnPreferenceTab();
+        application.mainPage().assertMainPageLoaded();
+        application.mainPage().clickOnPreferenceTab();
 
-        preferencePage.assertPreferencePageLoaded();
-        preferencePage.clickOnPreferenceFromCodeTab();
+        application.preferencePage().assertPreferencePageLoaded();
+        application.preferencePage().clickOnPreferenceFromCodeTab();
 
-        preferenceFromCodePage.assertPreferenceFromCodePageLoaded();
-        preferenceFromCodePage.checkAllCheckboxes();
-        preferenceFromCodePage.verifyCheckedAllCheckboxes();
-        preferenceFromCodePage.checkAllSwitchWidgets();
-        preferenceFromCodePage.verifyCheckedAllSwitchWidgets();
+        application.preferenceFromCodePage().assertPreferenceFromCodePageLoaded();
+        application.preferenceFromCodePage().checkAllCheckboxes();
+        application.preferenceFromCodePage().verifyCheckedAllCheckboxes();
+        application.preferenceFromCodePage().checkAllSwitchWidgets();
+        application.preferenceFromCodePage().verifyCheckedAllSwitchWidgets();
     }
 }
