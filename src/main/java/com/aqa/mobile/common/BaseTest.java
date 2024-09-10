@@ -1,4 +1,4 @@
-package com.aqa.mobile;
+package com.aqa.mobile.common;
 
 import com.aqa.mobile.application.Application;
 import com.aqa.mobile.driver.MobileDriver;
