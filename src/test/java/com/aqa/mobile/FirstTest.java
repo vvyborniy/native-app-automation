@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class FirstTest extends BaseTest {
 
 
-    @Test
+    @Test(description = "Test Case #2: Verify checkboxes and switches on 'Preference From Code' page")
     public void testCase2() {
         mainPage.assertMainPageLoaded();
         mainPage.clickOnPreferenceTab();
@@ -15,7 +15,7 @@ public class FirstTest extends BaseTest {
         preferencePage.assertPreferencePageLoaded();
         preferencePage.clickOnPreferenceFromCodeTab();
 
-        preferenceFromCodePage.assertPreferencePageLoaded();
+        preferenceFromCodePage.assertPreferenceFromCodePageLoaded();
         preferenceFromCodePage.checkAllCheckboxes();
         preferenceFromCodePage.verifyCheckedAllCheckboxes();
         preferenceFromCodePage.checkAllSwitchWidgets();

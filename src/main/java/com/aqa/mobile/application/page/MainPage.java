@@ -1,6 +1,7 @@
 package com.aqa.mobile.application.page;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -14,10 +15,12 @@ public class MainPage extends BasePage {
     private WebElement preferenceTab;
 
 
+    @Step("Assert 'Main page' loaded")
     public void assertMainPageLoaded() {
-        Assert.assertTrue(accessibilityTab.isDisplayed());
+        Assert.assertTrue(accessibilityTab.isDisplayed(), "Main page isn't load");
     }
 
+    @Step("Go to 'Preference page'")
     public void clickOnPreferenceTab() {
         preferenceTab.click();
     }

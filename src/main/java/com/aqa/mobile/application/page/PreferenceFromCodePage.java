@@ -1,6 +1,7 @@
 package com.aqa.mobile.application.page;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
@@ -25,14 +26,16 @@ public class PreferenceFromCodePage extends BasePage {
     private List<WebElement> switchWidgets;
 
 
-    public void assertPreferencePageLoaded() {
+    @Step("Assert 'PreferenceFromCodePage' loaded")
+    public void assertPreferenceFromCodePageLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(innerLayout.isDisplayed());
-        softAssert.assertTrue(checkbox.isDisplayed());
-        softAssert.assertTrue(title.isDisplayed());
+        softAssert.assertTrue(innerLayout.isDisplayed(), "PreferenceFromCodePage isn't load");
+        softAssert.assertTrue(checkbox.isDisplayed(), "PreferenceFromCodePage isn't load");
+        softAssert.assertTrue(title.isDisplayed(), "PreferenceFromCodePage isn't load");
         softAssert.assertAll();
     }
 
+    @Step("Click on all checkboxes on 'PreferenceFromCodePage'")
     public void checkAllCheckboxes() {
         for (int i = 0; i < checkboxes.size(); i++) {
             if (!isElementChecked(checkboxes.get(i))) {
@@ -41,14 +44,16 @@ public class PreferenceFromCodePage extends BasePage {
         }
     }
 
+    @Step("Verify that all checkboxes enabled")
     public void verifyCheckedAllCheckboxes() {
         SoftAssert softAssert = new SoftAssert();
         for (WebElement checkbox : checkboxes) {
-            softAssert.assertTrue(isElementChecked(checkbox));
+            softAssert.assertTrue(isElementChecked(checkbox), "Checkbox isn't selected");
         }
         softAssert.assertAll();
     }
 
+    @Step("Click on all switches on 'PreferenceFromCodePage'")
     public void checkAllSwitchWidgets() {
         for (int i = 0; i < switchWidgets.size(); i++) {
             if (!isElementChecked(switchWidgets.get(i))) {
@@ -57,10 +62,11 @@ public class PreferenceFromCodePage extends BasePage {
         }
     }
 
+    @Step("Verify that all switches enabled")
     public void verifyCheckedAllSwitchWidgets() {
         SoftAssert softAssert = new SoftAssert();
         for (WebElement switchWidget : switchWidgets) {
-            softAssert.assertTrue(isElementChecked(switchWidget));
+            softAssert.assertTrue(isElementChecked(switchWidget), "Checkbox isn't selected");
         }
         softAssert.assertAll();
     }

@@ -1,6 +1,7 @@
 package com.aqa.mobile.application.page;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -14,10 +15,12 @@ public class PreferencePage extends BasePage {
     private WebElement preferenceFromCodeTab;
 
 
+    @Step("Assert 'Preference Page' loaded")
     public void assertPreferencePageLoaded() {
-        Assert.assertTrue(preferenceFromXMLTab.isDisplayed());
+        Assert.assertTrue(preferenceFromXMLTab.isDisplayed(), "Preference Page isn't load");
     }
 
+    @Step("Go to 'Preference From Code page'")
     public void clickOnPreferenceFromCodeTab() {
         preferenceFromCodeTab.click();
     }
