@@ -8,7 +8,17 @@ public class FirstTest extends BaseTest {
 
 
     @Test
-    public void test() {
-        log.info("test start");
+    public void testCase2() {
+        mainPage.assertMainPageLoaded();
+        mainPage.clickOnPreferenceTab();
+
+        preferencePage.assertPreferencePageLoaded();
+        preferencePage.clickOnPreferenceFromCodeTab();
+
+        preferenceFromCodePage.assertPreferencePageLoaded();
+        preferenceFromCodePage.checkAllCheckboxes();
+        preferenceFromCodePage.verifyCheckedAllCheckboxes();
+        preferenceFromCodePage.checkAllSwitchWidgets();
+        preferenceFromCodePage.verifyCheckedAllSwitchWidgets();
     }
 }
