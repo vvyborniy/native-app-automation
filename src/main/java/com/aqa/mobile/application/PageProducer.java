@@ -1,18 +1,22 @@
 package com.aqa.mobile.application;
 
 import com.aqa.mobile.application.page.MainPage;
+import com.aqa.mobile.application.page.animation.AnimationMenuPage;
+import com.aqa.mobile.application.page.animation.SeekingPage;
 import com.aqa.mobile.application.page.preferences.*;
 import com.aqa.mobile.application.popup.WiFiSettingsPopup;
 
 public class PageProducer {
 
     private MainPage mainPage;
-    private PreferencePage preferencePage;
+    private PreferenceMenuPage preferenceMenuPage;
     private PreferenceFromCodePage preferenceFromCodePage;
     private LaunchingPreferencesPage launchingPreferencesPage;
     private AdvancedPreferencesPage advancedPreferencesPage;
     private PreferenceDependenciesPage preferenceDependenciesPage;
     private WiFiSettingsPopup wiFiSettingsPopup;
+    private AnimationMenuPage animationMenuPage;
+    private SeekingPage seekingPage;
 
 
     public MainPage initMainPage() {
@@ -20,9 +24,9 @@ public class PageProducer {
         return mainPage;
     }
 
-    public PreferencePage initPreferencePage() {
-        preferencePage = preferencePage != null ? preferencePage : new PreferencePage();
-        return preferencePage;
+    public PreferenceMenuPage initPreferencePage() {
+        preferenceMenuPage = preferenceMenuPage != null ? preferenceMenuPage : new PreferenceMenuPage();
+        return preferenceMenuPage;
     }
 
     public PreferenceFromCodePage initPreferenceFromCodePage() {
@@ -48,5 +52,15 @@ public class PageProducer {
     public WiFiSettingsPopup initWiFiSettingsPopup() {
         wiFiSettingsPopup = wiFiSettingsPopup != null ? wiFiSettingsPopup : new WiFiSettingsPopup();
         return wiFiSettingsPopup;
+    }
+
+    public AnimationMenuPage initAnimationMenuPage() {
+        animationMenuPage = animationMenuPage != null ? animationMenuPage : new AnimationMenuPage();
+        return animationMenuPage;
+    }
+
+    public SeekingPage initSeekingPage() {
+        seekingPage = seekingPage != null ? seekingPage : new SeekingPage();
+        return seekingPage;
     }
 }

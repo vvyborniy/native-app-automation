@@ -3,6 +3,7 @@
     <test name="SampleTest">
         <classes>
             <class name="com.aqa.mobile.PreferencesTest"/>
+            <class name="com.aqa.mobile.AnimationTest"/>
         </classes>
     </test>
 </suite>

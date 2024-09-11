@@ -14,6 +14,9 @@ public class MainPage extends BasePage {
     @AndroidFindBy(accessibility = "Preference")
     private WebElement preferenceTab;
 
+    @AndroidFindBy(accessibility = "Animation")
+    private WebElement animationTab;
+
 
     @Step("Assert 'Main page' loaded")
     public void assertPageIsLoaded() {
@@ -23,5 +26,10 @@ public class MainPage extends BasePage {
     @Step("Go to 'Preference page'")
     public void clickOnPreferenceTab() {
         preferenceTab.click();
+    }
+
+    @Step("Go to 'Animation page'")
+    public void clickOnAnimationTab() {
+        animationTab.click();
     }
 }

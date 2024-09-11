@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
-public class PreferencePage extends BasePage {
+public class PreferenceMenuPage extends BasePage {
 
 
     @AndroidFindBy(id = "android:id/list")

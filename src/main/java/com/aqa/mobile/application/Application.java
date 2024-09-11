@@ -1,6 +1,8 @@
 package com.aqa.mobile.application;
 
 import com.aqa.mobile.application.page.MainPage;
+import com.aqa.mobile.application.page.animation.AnimationMenuPage;
+import com.aqa.mobile.application.page.animation.SeekingPage;
 import com.aqa.mobile.application.page.preferences.*;
 import com.aqa.mobile.application.popup.WiFiSettingsPopup;
 
@@ -13,7 +15,7 @@ public class Application {
         return pageProducer.initMainPage();
     }
 
-    public PreferencePage preferencePage() {
+    public PreferenceMenuPage preferencePage() {
         return pageProducer.initPreferencePage();
     }
 
@@ -35,5 +37,13 @@ public class Application {
 
     public WiFiSettingsPopup wiFiSettingsPopup() {
         return pageProducer.initWiFiSettingsPopup();
+    }
+
+    public AnimationMenuPage animationMenuPage() {
+        return pageProducer.initAnimationMenuPage();
+    }
+
+    public SeekingPage seekingPage() {
+        return pageProducer.initSeekingPage();
     }
 }
