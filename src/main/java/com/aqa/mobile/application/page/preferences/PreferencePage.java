@@ -18,6 +18,9 @@ public class PreferencePage extends BasePage {
     @AndroidFindBy(accessibility = "2. Launching preferences")
     private WebElement launchingPreferencesTab;
 
+    @AndroidFindBy(accessibility = "3. Preference dependencies")
+    private WebElement preferenceDependenciesTab;
+
     @AndroidFindBy(accessibility = "5. Preferences from code")
     private WebElement preferenceFromCodeTab;
 
@@ -38,5 +41,10 @@ public class PreferencePage extends BasePage {
     @Step("Go to 'Launching Preferences page'")
     public void clickOnLaunchingPreferencesTab() {
         launchingPreferencesTab.click();
+    }
+
+    @Step("Go to 'Preference Dependencies page'")
+    public void clickOnPreferenceDependenciesTab() {
+        preferenceDependenciesTab.click();
     }
 }

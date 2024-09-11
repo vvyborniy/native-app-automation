@@ -13,6 +13,7 @@ public class BaseTest {
     public void setup() {
         MobileDriver.initDriver();
         application = new Application();
+        MobileDriver.setAppPackage();
     }
 
     @AfterMethod(alwaysRun = true)

@@ -2,7 +2,7 @@
 <suite name="TestSuite">
     <test name="SampleTest">
         <classes>
-            <class name="com.aqa.mobile.FirstTest"/>
+            <class name="com.aqa.mobile.PreferencesTest"/>
         </classes>
     </test>
 </suite>

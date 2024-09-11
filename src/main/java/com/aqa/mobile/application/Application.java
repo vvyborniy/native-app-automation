@@ -1,10 +1,8 @@
 package com.aqa.mobile.application;
 
 import com.aqa.mobile.application.page.MainPage;
-import com.aqa.mobile.application.page.preferences.AdvancedPreferencesPage;
-import com.aqa.mobile.application.page.preferences.LaunchingPreferencesPage;
-import com.aqa.mobile.application.page.preferences.PreferenceFromCodePage;
-import com.aqa.mobile.application.page.preferences.PreferencePage;
+import com.aqa.mobile.application.page.preferences.*;
+import com.aqa.mobile.application.popup.WiFiSettingsPopup;
 
 public class Application {
 
@@ -29,5 +27,13 @@ public class Application {
 
     public LaunchingPreferencesPage launchingPreferencesPage() {
         return pageProducer.initLaunchingPreferencesPage();
+    }
+
+    public PreferenceDependenciesPage preferenceDependenciesPage() {
+        return pageProducer.initPreferenceDependenciesPage();
+    }
+
+    public WiFiSettingsPopup wiFiSettingsPopup() {
+        return pageProducer.initWiFiSettingsPopup();
     }
 }

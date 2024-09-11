@@ -57,6 +57,11 @@
             <artifactId>allure-testng</artifactId>
             <version>2.29.0</version>
         </dependency>
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>1.9.0</version>
+        </dependency>
 
 
     </dependencies>

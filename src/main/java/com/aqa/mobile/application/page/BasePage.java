@@ -20,6 +20,10 @@ public abstract class BasePage {
         return element.getAttribute("checked").equals("true");
     }
 
+    public boolean isElementClickable(WebElement element) {
+        return element.getAttribute("clickable").equals("true");
+    }
+
 
     @Step("Navigate back")
     public void navigateBackHardware() {
