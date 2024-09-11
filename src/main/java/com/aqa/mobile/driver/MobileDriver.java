@@ -77,4 +77,9 @@ public final class MobileDriver {
         appPackage = getCurrentPackage();
         log.info("Set app package: " + appPackage);
     }
+
+    @Step("Hide keyboard")
+    public static void hideKeyboard() {
+        ((AndroidDriver) getAppiumDriver()).hideKeyboard();
+    }
 }

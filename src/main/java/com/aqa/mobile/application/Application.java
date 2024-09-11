@@ -3,8 +3,11 @@ package com.aqa.mobile.application;
 import com.aqa.mobile.application.page.MainPage;
 import com.aqa.mobile.application.page.animation.AnimationMenuPage;
 import com.aqa.mobile.application.page.animation.SeekingPage;
+import com.aqa.mobile.application.page.app_menu.AppMenuPage;
+import com.aqa.mobile.application.page.app_menu.CustomSearchPage;
+import com.aqa.mobile.application.page.app_menu.LoaderMenuPage;
+import com.aqa.mobile.application.page.popup.WiFiSettingsPopup;
 import com.aqa.mobile.application.page.preferences.*;
-import com.aqa.mobile.application.popup.WiFiSettingsPopup;
 
 public class Application {
 
@@ -45,5 +48,17 @@ public class Application {
 
     public SeekingPage seekingPage() {
         return pageProducer.initSeekingPage();
+    }
+
+    public AppMenuPage appMenuPage() {
+        return pageProducer.initAppMenuPage();
+    }
+
+    public CustomSearchPage customSearchPage() {
+        return pageProducer.initCustomSearchPage();
+    }
+
+    public LoaderMenuPage loaderMenuPage() {
+        return pageProducer.initLoaderMenuPage();
     }
 }

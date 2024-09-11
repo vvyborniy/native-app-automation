@@ -1,4 +1,4 @@
-package com.aqa.mobile.application.popup;
+package com.aqa.mobile.application.page.popup;
 
 import com.aqa.mobile.application.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;

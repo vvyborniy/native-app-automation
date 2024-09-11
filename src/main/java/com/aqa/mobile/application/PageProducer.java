@@ -3,8 +3,11 @@ package com.aqa.mobile.application;
 import com.aqa.mobile.application.page.MainPage;
 import com.aqa.mobile.application.page.animation.AnimationMenuPage;
 import com.aqa.mobile.application.page.animation.SeekingPage;
+import com.aqa.mobile.application.page.app_menu.AppMenuPage;
+import com.aqa.mobile.application.page.app_menu.CustomSearchPage;
+import com.aqa.mobile.application.page.app_menu.LoaderMenuPage;
+import com.aqa.mobile.application.page.popup.WiFiSettingsPopup;
 import com.aqa.mobile.application.page.preferences.*;
-import com.aqa.mobile.application.popup.WiFiSettingsPopup;
 
 public class PageProducer {
 
@@ -17,6 +20,9 @@ public class PageProducer {
     private WiFiSettingsPopup wiFiSettingsPopup;
     private AnimationMenuPage animationMenuPage;
     private SeekingPage seekingPage;
+    private AppMenuPage appMenuPage;
+    private CustomSearchPage customSearchPage;
+    private LoaderMenuPage loaderMenuPage;
 
 
     public MainPage initMainPage() {
@@ -62,5 +68,20 @@ public class PageProducer {
     public SeekingPage initSeekingPage() {
         seekingPage = seekingPage != null ? seekingPage : new SeekingPage();
         return seekingPage;
+    }
+
+    public LoaderMenuPage initLoaderMenuPage() {
+        loaderMenuPage = loaderMenuPage != null ? loaderMenuPage : new LoaderMenuPage();
+        return loaderMenuPage;
+    }
+
+    public CustomSearchPage initCustomSearchPage() {
+        customSearchPage = customSearchPage != null ? customSearchPage : new CustomSearchPage();
+        return customSearchPage;
+    }
+
+    public AppMenuPage initAppMenuPage() {
+        appMenuPage = appMenuPage != null ? appMenuPage : new AppMenuPage();
+        return appMenuPage;
     }
 }
