@@ -16,7 +16,7 @@ public class MainPage extends BasePage {
 
 
     @Step("Assert 'Main page' loaded")
-    public void assertMainPageLoaded() {
+    public void assertPageIsLoaded() {
         Assert.assertTrue(accessibilityTab.isDisplayed(), "Main page isn't load");
     }
 

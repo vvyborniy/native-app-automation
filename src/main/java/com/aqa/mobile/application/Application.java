@@ -1,8 +1,10 @@
 package com.aqa.mobile.application;
 
 import com.aqa.mobile.application.page.MainPage;
-import com.aqa.mobile.application.page.PreferenceFromCodePage;
-import com.aqa.mobile.application.page.PreferencePage;
+import com.aqa.mobile.application.page.preferences.AdvancedPreferencesPage;
+import com.aqa.mobile.application.page.preferences.LaunchingPreferencesPage;
+import com.aqa.mobile.application.page.preferences.PreferenceFromCodePage;
+import com.aqa.mobile.application.page.preferences.PreferencePage;
 
 public class Application {
 
@@ -19,5 +21,13 @@ public class Application {
 
     public PreferenceFromCodePage preferenceFromCodePage() {
         return pageProducer.initPreferenceFromCodePage();
+    }
+
+    public AdvancedPreferencesPage advancedPreferencesPage() {
+        return pageProducer.initAdvancedPreferencesPage();
+    }
+
+    public LaunchingPreferencesPage launchingPreferencesPage() {
+        return pageProducer.initLaunchingPreferencesPage();
     }
 }

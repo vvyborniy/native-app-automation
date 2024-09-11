@@ -1,5 +1,6 @@
-package com.aqa.mobile.application.page;
+package com.aqa.mobile.application.page.preferences;
 
+import com.aqa.mobile.application.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
@@ -27,7 +28,7 @@ public class PreferenceFromCodePage extends BasePage {
 
 
     @Step("Assert 'PreferenceFromCodePage' loaded")
-    public void assertPreferenceFromCodePageLoaded() {
+    public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(innerLayout.isDisplayed(), "PreferenceFromCodePage isn't load");
         softAssert.assertTrue(checkbox.isDisplayed(), "PreferenceFromCodePage isn't load");
@@ -36,7 +37,7 @@ public class PreferenceFromCodePage extends BasePage {
     }
 
     @Step("Click on all checkboxes on 'PreferenceFromCodePage'")
-    public void checkAllCheckboxes() {
+    public void enableAllCheckboxes() {
         for (int i = 0; i < checkboxes.size(); i++) {
             if (!isElementChecked(checkboxes.get(i))) {
                 checkboxes.get(i).click();
@@ -54,7 +55,7 @@ public class PreferenceFromCodePage extends BasePage {
     }
 
     @Step("Click on all switches on 'PreferenceFromCodePage'")
-    public void checkAllSwitchWidgets() {
+    public void enableAllSwitchWidgets() {
         for (int i = 0; i < switchWidgets.size(); i++) {
             if (!isElementChecked(switchWidgets.get(i))) {
                 switchWidgets.get(i).click();
