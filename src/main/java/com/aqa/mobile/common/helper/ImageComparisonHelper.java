@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import nu.pattern.OpenCV;
+import org.json.JSONObject;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
@@ -12,10 +13,11 @@ import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
 
 @Log4j2
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -75,8 +77,23 @@ public final class ImageComparisonHelper {
         if (resultImageName != null) {
             Imgcodecs.imwrite(resultImageName, result);
             try {
-                Allure.addAttachment("Difference of compared images.", new FileInputStream(resultImageName));
-                Files.deleteIfExists(Path.of(resultImageName));
+                Path resultImagePath = Paths.get(resultImageName);
+                byte[] differ = Files.readAllBytes(resultImagePath);
+                // Encode the data, wrap in a JSON, encode as bytes
+                String content = new JSONObject()
+                        .put("expected", "data:image/png;base64,"
+                                + Base64.getEncoder().encodeToString(imageBytes1))
+                        .put("actual", "data:image/png;base64,"
+                                + Base64.getEncoder().encodeToString(imageBytes2))
+                        .put("diff", "data:image/png;base64,"
+                                + Base64.getEncoder().encodeToString(differ))
+                        .toString();
+
+                // Attach to the test report
+                Allure.addAttachment("Screenshot diff",
+                        "application/vnd.allure.image.diff",
+                        content);
+                Files.deleteIfExists(resultImagePath);
             } catch (IOException e) {
                 log.error("Error during saving image after comparing.");
                 throw new RuntimeException(e);
