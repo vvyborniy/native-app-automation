@@ -5,7 +5,10 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.File;
 import java.util.Optional;
+
+import static java.lang.String.format;
 
 @Log4j2
 public final class AppiumServer {
@@ -27,17 +30,18 @@ public final class AppiumServer {
                 .usingAnyFreePort()
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                 .withArgument(GeneralServerFlag.LOG_LEVEL, APPIUM_LOG_LEVEL)
+                .withLogFile(new File("logs/appium.log"))
                 .build());
         log.info("Try to start Appium server");
         Optional.ofNullable(DRIVER_SERVICE_THREAD_LOCAL.get()).ifPresent(AppiumDriverLocalService::start);
 
-        log.info(String.format("Appium server running status is {%s}.",
+        log.info(format("Appium server running status is {%s}.",
                 DRIVER_SERVICE_THREAD_LOCAL.get().isRunning()));
     }
 
     public static void stopServer() {
         Optional.ofNullable(DRIVER_SERVICE_THREAD_LOCAL.get()).ifPresent(AppiumDriverLocalService::close);
-        log.info(String.format("Appium server running status is [{%s}] after stop command",
+        log.info(format("Appium server running status is [{%s}] after stop command",
                 DRIVER_SERVICE_THREAD_LOCAL.get().isRunning()));
         DRIVER_SERVICE_THREAD_LOCAL.remove();
         log.info("Appium server has been stopped");

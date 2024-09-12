@@ -7,6 +7,8 @@ import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
 import java.util.Optional;
@@ -81,5 +83,10 @@ public final class MobileDriver {
     @Step("Hide keyboard")
     public static void hideKeyboard() {
         ((AndroidDriver) getAppiumDriver()).hideKeyboard();
+    }
+
+    @Step("Make screenshot")
+    public static byte[] makeScreenshot() {
+        return ((TakesScreenshot) getAppiumDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }
