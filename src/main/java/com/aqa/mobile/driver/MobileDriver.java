@@ -24,10 +24,16 @@ public final class MobileDriver {
     private static String appPackage;
 
     public static void initDriver(MobileDevice deviceForTest) {
-        AndroidDriver driver = new AndroidDriver(AppiumServer.getService(), CapabilitiesConfigurator.getAndroidCapabilities(deviceForTest));
-        log.info("Driver is created.");
-        APPIUM_DRIVER_THREAD_LOCAL.set(driver);
-        enableImplicitWait();
+        try {
+            AndroidDriver driver = new AndroidDriver(AppiumServer.getService(), CapabilitiesConfigurator.getAndroidCapabilities(deviceForTest));
+            log.info("Driver is created.");
+            APPIUM_DRIVER_THREAD_LOCAL.set(driver);
+            enableImplicitWait();
+        } catch (Exception e) {
+            log.error("Catch exception during driver creating. Try to force stop Appium server.");
+            deviceForTest.rebootDevice();
+            throw e;
+        }
     }
 
     public static void killDriver() {

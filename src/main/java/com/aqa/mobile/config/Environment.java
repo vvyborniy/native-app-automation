@@ -27,4 +27,7 @@ public interface Environment extends Config {
 
     @Config.Key("device.jsonPath")
     String devicesJsonPath();
+
+    @Config.Key("thread.count")
+    int threadCount();
 }

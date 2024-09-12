@@ -24,12 +24,16 @@ public class DeviceManager {
     }
 
     public MobileDevice getDeviceForTest() {
-        MobileDevice device = MOBILE_DEVICE_THREAD_LOCAL.get();
+        MobileDevice device = getLocalDevice();
         if (device == null) {
             device = getFreeDeviceWithWait();
             MOBILE_DEVICE_THREAD_LOCAL.set(device);
         }
         return device;
+    }
+
+    public static MobileDevice getLocalDevice() {
+        return MOBILE_DEVICE_THREAD_LOCAL.get();
     }
 
 
@@ -47,7 +51,8 @@ public class DeviceManager {
         }
 
         if (freeDeviceFromMap == null) {
-            throw new NoOneFreeDeviceForTestException("Unable to find free device for test during %s attempts with % sec. pooling interval");
+            throw new NoOneFreeDeviceForTestException(format("Unable to find free device for test during %s attempts with %s sec. of pooling interval",
+                    attempt, poolingInterval));
         }
 
         log.info(format("Device with udid '%s' setting for test [%s]",
@@ -77,7 +82,7 @@ public class DeviceManager {
     }
 
     public void freeDevice() {
-        MobileDevice currentDevice = MOBILE_DEVICE_THREAD_LOCAL.get();
+        MobileDevice currentDevice = getLocalDevice();
         if (currentDevice != null) {
             unlockDevice(currentDevice);
             MOBILE_DEVICE_THREAD_LOCAL.remove();

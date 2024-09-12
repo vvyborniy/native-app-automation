@@ -35,13 +35,13 @@ public final class AppiumServer {
         log.info("Try to start Appium server");
         Optional.ofNullable(DRIVER_SERVICE_THREAD_LOCAL.get()).ifPresent(AppiumDriverLocalService::start);
 
-        log.info(format("Appium server running status is {%s}.",
+        log.info(format("Appium server running status is [%s].",
                 DRIVER_SERVICE_THREAD_LOCAL.get().isRunning()));
     }
 
     public static void stopServer() {
-        Optional.ofNullable(DRIVER_SERVICE_THREAD_LOCAL.get()).ifPresent(AppiumDriverLocalService::close);
-        log.info(format("Appium server running status is [{%s}] after stop command",
+        Optional.ofNullable(DRIVER_SERVICE_THREAD_LOCAL.get()).ifPresent(AppiumDriverLocalService::stop);
+        log.info(format("Appium server running status is [%s] after stop command",
                 DRIVER_SERVICE_THREAD_LOCAL.get().isRunning()));
         DRIVER_SERVICE_THREAD_LOCAL.remove();
         log.info("Appium server has been stopped");

@@ -21,7 +21,7 @@ public final class TextHelper {
             String numberStr = matcher.group();
             return Integer.parseInt(numberStr);
         } else {
-            throw new NoSuchElementException(format("Can't find any digits in text {%s}", withNumbers));
+            throw new NoSuchElementException(format("Can't find any digits in text [%s]", withNumbers));
         }
     }
 }
