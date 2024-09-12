@@ -3,6 +3,7 @@ package com.aqa.mobile.application.page.preferences;
 import com.aqa.mobile.application.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
+import lombok.SneakyThrows;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
@@ -38,16 +39,19 @@ public class AdvancedPreferencesPage extends BasePage {
         myPreferenceWidget.click();
     }
 
+    @SneakyThrows
     @Step("Verify counter increase by {times}.")
     public void verifyIncreaseCounterBy(int times, int startValue) {
+        Thread.sleep(500); //sleep for counter update
         int current = this.getCounterValue();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertNotEquals(current, startValue, format("Counter doesn't change value on click." +
-                "Expected current > start, but got current=%s and start=%s, performed clicks=%s", current, startValue, times));
+                "Expected current != initial value, " +
+                "current_Counter_value=%s , performed clicks=%s, Initial_counter_value=%s", current, startValue, times));
         softAssert.assertTrue(current > startValue, format("Counter value did not increase on click. " +
-                "Expected current > start, but got current=%s and start=%s, performed clicks=%s", current, startValue, times));
+                "Expected current > initial, but got Current_Counter_value=%s , performed clicks=%s, Initial_counter_value=%s", current, startValue, times));
         softAssert.assertTrue(current == startValue + times, format("Counter value did not increase by %s. " +
-                "Expected current > start, but got current=%s and start=%s, performed clicks=%s", times, current, startValue, times));
+                "Current_Counter_value=%s , performed clicks=%s, Initial_counter_value=%s", times, current, startValue, times));
         softAssert.assertAll();
     }
 
