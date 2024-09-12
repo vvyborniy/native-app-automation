@@ -13,6 +13,9 @@ public interface Environment extends Config {
     @Config.Key("app.path")
     String appPath();
 
+    @Config.Key("app.package")
+    String appPackage();
+
     @Config.Key("driver.implicitWait")
     int implicitWait();
 
@@ -21,4 +24,7 @@ public interface Environment extends Config {
 
     @Config.Key("driver.newCommandTimeoutSeconds")
     int newCommandTimeout();
+
+    @Config.Key("device.jsonPath")
+    String devicesJsonPath();
 }

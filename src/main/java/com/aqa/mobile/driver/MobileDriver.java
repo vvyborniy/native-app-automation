@@ -1,5 +1,6 @@
 package com.aqa.mobile.driver;
 
+import com.aqa.mobile.common.device.model.MobileDevice;
 import com.aqa.mobile.config.Environment;
 import com.aqa.mobile.driver.appium.AppiumServer;
 import io.appium.java_client.AppiumDriver;
@@ -22,8 +23,8 @@ public final class MobileDriver {
     private static final int IMPLICIT_WAIT_TIMEOUT = Environment.environment.implicitWait();
     private static String appPackage;
 
-    public static void initDriver() {
-        AndroidDriver driver = new AndroidDriver(AppiumServer.getService(), CapabilitiesConfigurator.getAndroidCapabilities());
+    public static void initDriver(MobileDevice deviceForTest) {
+        AndroidDriver driver = new AndroidDriver(AppiumServer.getService(), CapabilitiesConfigurator.getAndroidCapabilities(deviceForTest));
         log.info("Driver is created.");
         APPIUM_DRIVER_THREAD_LOCAL.set(driver);
         enableImplicitWait();
@@ -89,5 +90,10 @@ public final class MobileDriver {
     @Step("Make screenshot")
     public static byte[] makeScreenshot() {
         return ((TakesScreenshot) getAppiumDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+    @Step("Get page source")
+    public static String getPageSource() {
+        return getAppiumDriver().getPageSource();
     }
 }

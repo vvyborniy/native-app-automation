@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SearchTest extends BaseTest {
 
-    @DataProvider
+    @DataProvider(parallel = true)
     private Object[][] searchDataProvider() {
         return new Object[][]{
                 {"ap"},
