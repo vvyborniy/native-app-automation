@@ -1,5 +1,6 @@
 package com.aqa.mobile.driver;
 
+import com.aqa.mobile.config.Environment;
 import com.aqa.mobile.driver.appium.AppiumServer;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -18,7 +19,7 @@ import java.util.Optional;
 public final class MobileDriver {
 
     private static final ThreadLocal<AppiumDriver> APPIUM_DRIVER_THREAD_LOCAL = new ThreadLocal<>();
-    private static final int IMPLICIT_WAIT_TIMEOUT = 5;
+    private static final int IMPLICIT_WAIT_TIMEOUT = Environment.environment.implicitWait();
     private static String appPackage;
 
     public static void initDriver() {
