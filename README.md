@@ -29,13 +29,7 @@ device.jsonPath=devices/android.json
 thread.count=1 
 ```
 
-If you need to override these property values, you can do so from the command line using Maven parameters. This allows
-you to modify configuration settings without directly editing the ```environment.properties``` file.
 
-Overriding Values from the Command Line
-
-Example:
-``` -Dapp.path=new/path/to/your/app.apk -Ddriver.implicitWait=20 -DisRetryTest=false```
 
 ### Create an Emulator in Android Studio
 
