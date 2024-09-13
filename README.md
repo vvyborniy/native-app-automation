@@ -59,7 +59,7 @@ To run tests that are part of a specific group/class, you can specify the group/
 the ```-Dgroups``` option to include the desired group/class:
 
 ```mvn clean test -Dtest=AnimationTest```
-```mvn clean test -Dgroups=search```
+```mvn clean test -Dgroups=smoke```
 
 Available groups: ```regression```, ```smoke```.
 
