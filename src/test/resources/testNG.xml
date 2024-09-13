@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="TestSuite">
+    <test name="PreferencesTest">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.aqa.mobile.PreferencesTest"/>
+        </classes>
+    </test>
+    <test name="AnimationTest">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.aqa.mobile.AnimationTest"/>
+        </classes>
+    </test>
+    <test name="SearchTest">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.aqa.mobile.SearchTest"/>
+        </classes>
+    </test>
+</suite>
