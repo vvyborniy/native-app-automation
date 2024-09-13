@@ -26,7 +26,7 @@ public final class CapabilitiesConfigurator {
                 .setDeviceName(deviceForTest.getDeviceName())
                 .setUdid(deviceForTest.getUdid())
                 .setPlatformVersion(deviceForTest.getPlatformVersion())
-//                .setSystemPort() // set if ports provided by default conflict
+//                .setSystemPort() // set if ports provided by default conflict in multithreading run
                 .setNewCommandTimeout(Duration.ofSeconds(environment.newCommandTimeout()))
                 .setApp(new File(environment.appPath()).getAbsolutePath())
                 .setAdbExecTimeout(Duration.ofMillis(120000))

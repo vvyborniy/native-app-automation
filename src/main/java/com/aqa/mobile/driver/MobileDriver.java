@@ -20,7 +20,6 @@ import java.util.Optional;
 public final class MobileDriver {
 
     private static final ThreadLocal<AppiumDriver> APPIUM_DRIVER_THREAD_LOCAL = new ThreadLocal<>();
-    private static final int IMPLICIT_WAIT_TIMEOUT = Environment.environment.implicitWait();
     private static String appPackage;
 
     public static void initDriver(MobileDevice deviceForTest) {
@@ -55,7 +54,7 @@ public final class MobileDriver {
     }
 
     public static void enableImplicitWait() {
-        getAppiumDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT_TIMEOUT));
+        getAppiumDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(Environment.environment.implicitWait()));
     }
 
     public static void disableImplicitWait() {
@@ -80,7 +79,7 @@ public final class MobileDriver {
     public static void restartApp() {
         terminateApp();
         activateApp();
-        log.info("App was reopened");
+        log.info("App was restarted");
     }
 
     public static void setAppPackage() {
