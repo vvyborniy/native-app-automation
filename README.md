@@ -33,7 +33,8 @@ thread.count=1
 
 ### Create an Emulator in Android Studio
 
-You need to create an emulator in Android Studio with the following configuration:
+> [!IMPORTANT]  
+>You need to create an emulator in Android Studio with the following configuration:
 
 ```Emulator Name: pixel_8```
 
