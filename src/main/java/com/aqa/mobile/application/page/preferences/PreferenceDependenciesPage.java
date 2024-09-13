@@ -28,9 +28,9 @@ public class PreferenceDependenciesPage extends BasePage {
     @Step("Assert 'PreferenceDependencies Page' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(title.isDisplayed(), "PreferenceDependencies Page isn't load");
-        softAssert.assertTrue(wifiSettingsTab.isDisplayed(), "PreferenceDependencies Page isn't load");
-        softAssert.assertTrue(wifiCheckbox.isDisplayed(), "PreferenceDependencies Page isn't load");
+        softAssert.assertTrue(isElementDisplayed(title), "PreferenceDependencies Page isn't load");
+        softAssert.assertTrue(isElementDisplayed(wifiSettingsTab), "PreferenceDependencies Page isn't load");
+        softAssert.assertTrue(isElementDisplayed(wifiCheckbox), "PreferenceDependencies Page isn't load");
         softAssert.assertAll();
     }
 

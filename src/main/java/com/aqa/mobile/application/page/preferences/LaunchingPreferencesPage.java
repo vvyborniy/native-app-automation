@@ -24,8 +24,8 @@ public class LaunchingPreferencesPage extends BasePage {
     @Step("Assert 'LaunchingPreferencesPage' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(launchPreferenceActivityButton.isDisplayed(), "LaunchingPreferencesPage isn't load");
-        softAssert.assertTrue(title.isDisplayed(), "LaunchingPreferencesPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(launchPreferenceActivityButton), "LaunchingPreferencesPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(title), "LaunchingPreferencesPage isn't load");
         softAssert.assertAll();
     }
 

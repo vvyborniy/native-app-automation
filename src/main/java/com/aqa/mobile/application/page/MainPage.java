@@ -19,7 +19,7 @@ public class MainPage extends BasePage {
 
     @Step("Assert 'Main page' loaded")
     public void assertPageIsLoaded() {
-        Assert.assertTrue(preferenceTab.isDisplayed(), "Main page isn't load");
+        Assert.assertTrue(isElementDisplayed(preferenceTab), "Main page isn't load");
     }
 
     @Step("Go to 'Preference page'")

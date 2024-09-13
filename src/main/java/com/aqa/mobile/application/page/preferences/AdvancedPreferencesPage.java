@@ -22,8 +22,8 @@ public class AdvancedPreferencesPage extends BasePage {
     @Step("Assert 'AdvancedPreferencesPage' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(title.isDisplayed(), "AdvancedPreferencesPage isn't load");
-        softAssert.assertTrue(myPreferenceWidget.isDisplayed(), "AdvancedPreferencesPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(title), "AdvancedPreferencesPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(myPreferenceWidget), "AdvancedPreferencesPage isn't load");
         softAssert.assertAll();
     }
 

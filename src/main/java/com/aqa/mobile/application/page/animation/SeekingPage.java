@@ -28,8 +28,8 @@ public class SeekingPage extends BasePage {
     @Step("Assert 'SeekingPage' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(title.isDisplayed(), "SeekingPage isn't load");
-        softAssert.assertTrue(ballView.isDisplayed(), "SeekingPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(title), "SeekingPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(ballView), "SeekingPage isn't load");
         softAssert.assertAll();
     }
 

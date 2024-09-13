@@ -21,7 +21,7 @@ public class WiFiSettingsPopup extends BasePage {
 
     @Step("Assert 'WiFiSettingsPopup' loaded")
     public void assertPopupIsLoaded() {
-        Assert.assertTrue(parentPanel.isDisplayed(), "WiFiSettings Popup isn't load");
+        Assert.assertTrue(isElementDisplayed(parentPanel), "WiFiSettings Popup isn't load");
     }
 
     @Step("Click on OK button")

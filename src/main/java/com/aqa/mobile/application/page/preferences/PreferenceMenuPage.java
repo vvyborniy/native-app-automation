@@ -28,8 +28,8 @@ public class PreferenceMenuPage extends BasePage {
     @Step("Assert 'Preference Page' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(preferenceFromXMLTab.isDisplayed(), "Preference Page isn't load");
-        softAssert.assertTrue(listView.isDisplayed(), "Preference Page isn't load");
+        softAssert.assertTrue(isElementDisplayed(preferenceFromXMLTab), "Preference Page isn't load");
+        softAssert.assertTrue(isElementDisplayed(listView), "Preference Page isn't load");
         softAssert.assertAll();
     }
 

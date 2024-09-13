@@ -41,9 +41,9 @@ public class CustomSearchPage extends BasePage {
     @Step("Assert 'CustomSearch page' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(title.isDisplayed(), "CustomSearchPage isn't load");
-        softAssert.assertTrue(innerLayout.isDisplayed(), "CustomSearchPage isn't load");
-        softAssert.assertTrue(searchIcon.isDisplayed(), "CustomSearchPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(title), "CustomSearchPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(innerLayout), "CustomSearchPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(searchIcon), "CustomSearchPage isn't load");
         softAssert.assertAll();
     }
 
@@ -69,7 +69,7 @@ public class CustomSearchPage extends BasePage {
 
     @Step("Verify 'No Application' placeholder")
     public void verifyNoApplicationPlaceholderDisplayed() {
-        Assert.assertTrue(noApplicationPlaceholder.isDisplayed(), "Placeholder isn't displayed.");
+        Assert.assertTrue(isElementDisplayed(noApplicationPlaceholder), "Placeholder isn't displayed.");
     }
 
     @Step("Verify search results by input [{searchText}]")

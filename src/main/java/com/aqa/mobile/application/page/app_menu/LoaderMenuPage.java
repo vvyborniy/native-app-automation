@@ -17,8 +17,8 @@ public class LoaderMenuPage extends BasePage {
     @Step("Assert 'LoaderMenu page' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(innerLayout.isDisplayed(), "LoaderMenuPage isn't load");
-        softAssert.assertTrue(customTab.isDisplayed(), "LoaderMenuPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(innerLayout), "LoaderMenuPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(customTab), "LoaderMenuPage isn't load");
         softAssert.assertAll();
     }
 

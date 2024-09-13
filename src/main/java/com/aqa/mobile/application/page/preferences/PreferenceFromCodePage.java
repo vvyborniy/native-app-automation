@@ -30,9 +30,9 @@ public class PreferenceFromCodePage extends BasePage {
     @Step("Assert 'PreferenceFromCodePage' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(innerLayout.isDisplayed(), "PreferenceFromCodePage isn't load");
-        softAssert.assertTrue(checkbox.isDisplayed(), "PreferenceFromCodePage isn't load");
-        softAssert.assertTrue(title.isDisplayed(), "PreferenceFromCodePage isn't load");
+        softAssert.assertTrue(isElementDisplayed(innerLayout), "PreferenceFromCodePage isn't load");
+        softAssert.assertTrue(isElementDisplayed(checkbox), "PreferenceFromCodePage isn't load");
+        softAssert.assertTrue(isElementDisplayed(title), "PreferenceFromCodePage isn't load");
         softAssert.assertAll();
     }
 

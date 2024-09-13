@@ -19,8 +19,8 @@ public class AnimationMenuPage extends BasePage {
     @Step("Assert 'AnimationMenuPage' loaded")
     public void assertPageIsLoaded() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(innerLayout.isDisplayed(), "AnimationMenuPage isn't load");
-        softAssert.assertTrue(seekingTab.isDisplayed(), "AnimationMenuPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(innerLayout), "AnimationMenuPage isn't load");
+        softAssert.assertTrue(isElementDisplayed(seekingTab), "AnimationMenuPage isn't load");
         softAssert.assertAll();
     }
 
