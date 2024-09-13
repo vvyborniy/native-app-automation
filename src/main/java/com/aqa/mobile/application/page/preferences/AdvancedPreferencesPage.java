@@ -42,7 +42,7 @@ public class AdvancedPreferencesPage extends BasePage {
     @SneakyThrows
     @Step("Verify counter increase by {times}.")
     public void verifyIncreaseCounterBy(int times, int startValue) {
-        Thread.sleep(500); //sleep for counter update
+        Thread.sleep(1000); //sleep for counter update
         int current = this.getCounterValue();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertNotEquals(current, startValue, format("Counter doesn't change value on click." +

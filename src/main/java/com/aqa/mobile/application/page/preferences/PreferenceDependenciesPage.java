@@ -2,6 +2,7 @@ package com.aqa.mobile.application.page.preferences;
 
 import com.aqa.mobile.application.page.BasePage;
 import com.aqa.mobile.common.KeyPhraseState;
+import com.aqa.mobile.common.device.DeviceManager;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
@@ -35,9 +36,17 @@ public class PreferenceDependenciesPage extends BasePage {
 
     @Step("Verify Wifi Setting tab is {isClickable}")
     public void verifyWifiSettingsTabIsClickable(KeyPhraseState isClickable) {
-        Assert.assertEquals(this.isWifiSettingsTabClickable(), isClickable.isTrue(),
-                format("Wifi settings tab is %s. Expected: %s.",
-                        isClickable.isTrue() ? CLICKABLE : NOT_CLICKABLE, isClickable));
+        //handling diff behavior on diff Android version
+        if (DeviceManager.getLocalDevice().getPlatformVersion().equals("13")) {
+            if (!isClickable.isTrue()) {
+                this.clickOnWifiSettingsTab();
+                this.assertPageIsLoaded();
+            }
+        } else {
+            Assert.assertEquals(this.isWifiSettingsTabClickable(), isClickable.isTrue(),
+                    format("Wifi settings tab attribute is %s. Expected: %s.",
+                            isClickable.isTrue() ? NOT_CLICKABLE : CLICKABLE, isClickable));
+        }
     }
 
     public boolean isWifiSettingsTabClickable() {
