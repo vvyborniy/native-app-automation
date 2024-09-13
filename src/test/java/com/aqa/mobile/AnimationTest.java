@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class AnimationTest extends BaseTest {
 
 
-    @Test(description = "Test Case #5: Verify ball change position.")
+    @Test(description = "Test Case #5: Verify ball change position.", groups = "regression")
     public void testCase5() {
         application.mainPage().assertPageIsLoaded();
         application.mainPage().clickOnAnimationTab();

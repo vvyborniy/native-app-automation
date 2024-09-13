@@ -22,6 +22,9 @@ public interface Environment extends Config {
     @Config.Key("isRetryTest")
     boolean isRetryTest();
 
+    @Config.Key("retry.count")
+    int retryCount();
+
     @Config.Key("driver.newCommandTimeoutSeconds")
     int newCommandTimeout();
 

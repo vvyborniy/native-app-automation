@@ -41,8 +41,6 @@ public final class AppiumServer {
 
     public static void stopServer() {
         Optional.ofNullable(DRIVER_SERVICE_THREAD_LOCAL.get()).ifPresent(AppiumDriverLocalService::stop);
-        log.info(format("Appium server running status is [%s] after stop command",
-                DRIVER_SERVICE_THREAD_LOCAL.get().isRunning()));
         DRIVER_SERVICE_THREAD_LOCAL.remove();
         log.info("Appium server has been stopped");
     }

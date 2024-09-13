@@ -22,7 +22,7 @@ public class PreferencesTest extends BaseTest {
         application.preferencePage().assertPageIsLoaded();
     }
 
-    @Test(description = "Test Case #2: Verify checkboxes and switches on 'Preference From Code' page")
+    @Test(description = "Test Case #2: Verify checkboxes and switches on 'Preference From Code' page", groups = "smoke")
     public void testCase2() {
         application.preferencePage().clickOnPreferenceFromCodeTab();
         application.preferenceFromCodePage().assertPageIsLoaded();
@@ -34,7 +34,7 @@ public class PreferencesTest extends BaseTest {
     }
 
 
-    @Test(description = "Test Case #3: Verify counter increase by click on 'Launching preferences' and 'Advanced Preferences' pages")
+    @Test(description = "Test Case #3: Verify counter increase by click on 'Launching preferences' and 'Advanced Preferences' pages", groups = "smoke")
     public void testCase3() {
         application.preferencePage().clickOnLaunchingPreferencesTab();
         application.launchingPreferencesPage().assertPageIsLoaded();
@@ -54,7 +54,7 @@ public class PreferencesTest extends BaseTest {
         application.launchingPreferencesPage().verifyIncreaseCounterBy(times, startCounterValueLaunching);
     }
 
-    @Test(description = "Test Case #4: Verify WiFi Settings")
+    @Test(description = "Test Case #4: Verify WiFi Settings", groups = "smoke")
     public void testCase4() {
         application.preferencePage().clickOnPreferenceDependenciesTab();
         application.preferenceDependenciesPage().assertPageIsLoaded();

@@ -34,8 +34,7 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestResult testResult) {
         setupRetry(testResult);
-        long threadId = Thread.currentThread().getId();
-        Thread.currentThread().setName(testResult.getMethod().getMethodName() + threadId);
+        Thread.currentThread().setName(testResult.getMethod().getMethodName());
         MobileDevice deviceForTest = deviceManager.getDeviceForTest();
         MobileDriver.initDriver(deviceForTest);
         application = new Application();

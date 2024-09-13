@@ -29,7 +29,7 @@ public class SearchTest extends BaseTest {
         };
     }
 
-    @Test(description = "Test Case #1: Verify search of applications.", dataProvider = "searchDataProvider")
+    @Test(description = "Test Case #1: Verify search of applications.", dataProvider = "searchDataProvider", groups = "regression")
     public void testCase1(String text) {
         application.mainPage().assertPageIsLoaded();
         application.mainPage().clickOnAppTab();
@@ -50,7 +50,7 @@ public class SearchTest extends BaseTest {
         application.customSearchPage().verifyClearSearchField();
     }
 
-    @Test(description = "Test Case #1 [Negative]: Verify search of applications.", dataProvider = "searchNegativeDataProvider")
+    @Test(description = "Test Case #1 [Negative]: Verify search of applications.", dataProvider = "searchNegativeDataProvider", groups = "regression")
     public void testCase1Negative(String text) {
         application.mainPage().assertPageIsLoaded();
         application.mainPage().clickOnAppTab();

@@ -5,7 +5,7 @@ import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
 public final class RetryAnalyzer implements IRetryAnalyzer {
-    private static final int MAX_COUNT = 1;
+    private static final int MAX_COUNT = Environment.environment.retryCount();
     private int currentCount = 0;
 
     @Override
